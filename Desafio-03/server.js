@@ -8,6 +8,9 @@ insertarProductos();
 
 const server = app.listen(8080, () => console.log("Server Up"));
 
+app.get("/", (request, response) => {
+  response.send("Bienvenido al Desafio 03 Backend de CoderHouse");
+});
 app.get("/productos", (request, response) => {
   response.send(container.getAll());
 });
