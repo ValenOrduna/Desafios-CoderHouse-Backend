@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+    text-align: center;
+    margin: 200px auto;
+}
+
+.label-inputs {
+    font-weight: 800;
+    font-size: 20px;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin: 10px 0;
+}
+
+.inputs-form {
+    width: 60%;
+    margin: 0 auto;
+    padding: 12px;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: 2px 2px 7px 0 rgb(0, 0, 0, 0.2);
+    outline: none;
+    color: dimgray;
+}
+
+
+  
+.inputs-form:invalid {
+    animation: justshake 0.3s forwards;
+    color: red;
+}
+  
+@keyframes justshake {
+    25% {
+      transform: translateX(5px);
+    }
+  
+    50% {
+      transform: translateX(-5px);
+    }
+  
+    75% {
+      transform: translateX(5px);
+    }
+  
+    100% {
+      transform: translateX-(5px);
+    }
+}
+
+.boton {
+  font-size: 16px;
+  position: relative;
+  margin: auto;
+  padding: 1em 2.5em 1em 2.5em;
+  border: none;
+  background: #fff;
+  transition: all 0.1s linear;
+  box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+  color: black;
+  margin-top: 25px;
+}
+ 
+.boton:active {
+  transform: scale(0.95);
+}
+ 
+.boton span {
+  color: #464646;
+}
+ 
+.boton .border {
+  position: absolute;
+  border: 0.15em solid #fff;
+  transition: all 0.3s 0.08s linear;
+  top: 50%;
+  left: 50%;
+  width: 9em;
+  height: 3em;
+  transform: translate(-50%, -50%);
+}
+ 
+.boton:hover .border {
+  display: block;
+  width: 9.9em;
+  height: 3.7em;
+}
+ 
+.full-rounded {
+  border-radius: 2em;
+}
