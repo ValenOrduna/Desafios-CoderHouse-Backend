@@ -1,0 +1,14 @@
+<% include('./partials/head.ejs') %> <% if (products) {%> <%
+products.forEach(product => { %>
+<div>
+  <h2>ID: <%= product.id %></h2>
+  <h2>Nombre: <%= product.nombre %></h2>
+  <h3>Precio: <%= product.precio %></h3>
+  <h4>Url: <%= product.url %></h4>
+</div>
+<% }) %> <% } %> <% if (products.length == 0) { %>
+<h2>No hay productos</h2>
+<% } %>
+<button onclick="location.href='http://localhost:8080/api/productos'">
+  Volver atras
+</button>
