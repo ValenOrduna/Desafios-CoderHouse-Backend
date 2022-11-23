@@ -1,0 +1,14 @@
+<h1>Todos los productos</h1>
+{{#if products}}
+    {{#each products}}
+        <div>
+            <h2>ID: {{this.id}}</h2>
+            <h2>Nombre: {{this.nombre}}</h2>
+            <h3>Precio: {{this.precio}}</h3>
+            <h4>Url: {{this.url}}</h4>
+        </div>
+    {{/each}}
+{{else}}
+<h2>No hay productos</h2>
+{{/if}}
+<button onclick="location.href='http://localhost:8080/api/productos'">Volver atras</button>

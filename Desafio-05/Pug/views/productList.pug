@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        h1 Todos Los Productos
+        if products.length > 0
+            each product in products
+                div 
+                    h2 ID: product.id
+                    h2 Nombre: product.nombre 
+                    h3 Precio: product.precio 
+                    h4 Url: produc.url
+        else 
+            h2 No hay productos
+        button(onclick="location.href='http://localhost:8080/api/productos'") Volver atras

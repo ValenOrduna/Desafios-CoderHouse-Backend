@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        form(action="/api/productos" method="post" id="form-products" class="form")
+            label(class="label-inputs" for="nombre") Nombre del Producto
+            input(class="inputs-form" type="text" name="nombre" id="nombre")
+            label(class="label-inputs" for="precio") Precio del Producto
+            input(class="inputs-form" type="text" name="precio")
+            label(class="label-inputs" for="url") Url del Producto
+            input(class="inputs-form" type="text" name="url")
+            input(class="boton" type="submit")
+            if products.length > 0
+                button(onclick="location.href='http://localhost:8080/api/productos'") Ver productos
+</form>
