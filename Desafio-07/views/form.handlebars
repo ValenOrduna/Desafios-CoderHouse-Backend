@@ -1,0 +1,30 @@
+<form action="/" method="post" id="form-products" class="w-3/6 py-28 h-100 mt-20 mx-auto flex flex-col items-center bg-red-200">
+    <label class="uppercase font-bold" for="name">Nombre del Producto</label>
+    <input class="w-1/3 h-8 border-black m-5 border-2 border-black" type="text" name="name" id="name" />
+    <label class="uppercase font-bold" for="price">Precio del Producto</label>
+    <input class="w-1/3 h-8 border-black m-5 border-2 border-black" type="text" name="price" />
+    <label class="uppercase font-bold" for="url">Url del Producto</label>
+    <input class="w-1/3 h-8 border-black m-5 border-2 border-black" type="text" name="url" />
+    <input class="p-2 bg-black text-white font-bold uppercase mt-4" type="submit" value="Ingresar Producto" />
+</form>
+{{#if products}}
+    <div class="w-3/6 m-auto bg-red-300">
+        {{#each products}}
+            <div class="w-4/6 py-10 mt-20 mx-auto flex items-center bg-amber-100">
+                <h2 class="font-bold uppercase mx-5">ID: {{this.id}}</h2>
+                <h2 class="font-bold uppercase mx-5">Nombre: {{this.name}}</h2>
+                <h3 class="font-bold uppercase mx-5">Precio: {{this.price}}</h3>
+                <h4 class="font-bold uppercase mx-5">Url: {{this.url}}</h4>
+            </div>
+        {{/each}}
+    </div>
+{{/if}}
+
+<div class="w-3/6 mx-auto bg-green-200 flex flex-col justify-center mt-20">
+    <h2 class="font-bold uppercase text-center text-xl">CHAT DE DESAFIO 07 CODERHOUSE</h2>
+    <div class="mt-5" id="history"></div>
+    <div class="flex justify-center items-center text-center mt-40">
+        <input id="input-mensaje" class="w-1/3 h-10 border-black m-5 border-2 border-black" type="text">
+        <button id="boton-enviar" class="p-2 bg-black text-white font-bold uppercase mt-4">Enviar Mensaje</button>
+    </div>
+</div>
