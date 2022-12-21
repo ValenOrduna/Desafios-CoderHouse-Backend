@@ -1,0 +1,75 @@
+1) AGREGAR 10 DOCUMENTOS CON VALORES DISTINTOS A PRODUCTOS Y A MENSAJES
+
+// CREAMOS LA COLECCION DE PRODUCTOS Y LE INSERTAMOS 5 DOCUMENTOS
+
+db.products.insert([{name:"Monitor LG 22 pulgadas",price:51000,url:"www.lg.com/monitor22pulgadas"},{name:"Escritorio Electrico",price:120000,url:"www.escritorios.com/escritorioelectrico"},{name:"Mouse Logitech G203",price:3500,url:"www.logitech.com/mouselogitechg203"},{name:"Trackpad Apple",price:21000,url:"www.apple.com/trackpad"},{name:"Macbook I7 1TB 16gb RAM",price:250000,url:"www.apple.com/macbook"}])
+
+// CREAMOS LA COLECCION DE PRODUCTOS Y LE INSERTAMOS 5 DOCUMENTOS
+
+db.messages.insert([{hour:21/12/2022 15:30,name:'Valentin',message:'Hola este es el primer mensaje de la coleccion de Mongo'},{hour:21/12/2022 16:00,name:'Agustin',message:'Hola que bueno, mongo es una base de datos no relacional (NOSQL)'},{hour:21/12/2022 16:10,name:'Matias',message:'Hola soy nuevo, y eso que significa?'},{hour:21/12/2022 16:26,name:'Valentin',message:'Eso significa que guarda no guarda los datos en tablas'},{hour:21/12/2022 17:00,name:'Matias',message:'Claro, Mongo guarda sus datos en colecciones'}])
+
+2) LISTAR TODOS LOS DOCUMENTOS DE CADA COLECCION
+
+// LISTAMOS TODOS LOS PRODUCTOS DE LA COLECCION PRODUCTS
+
+db.products.find().pretty()
+
+// LISTAMOS TODOS LOS MENSAJES DE LA COLECCION MESSAGES
+
+db.messages.find().pretty()
+
+3) MOSTRAR LA CANTIDAD DE DOCUMENTOS ALMACENADOS EN CADA UNA DE ELLAS
+
+// CANTIDAD DE DOCUMENTOS DE LA COLECCION PRODUCTS
+
+db.products.count()
+
+// CANTIDAD DE DOCUEMENTOS DE LA COLECCION MESSAGES
+
+db.messages.count()
+
+4) REALIZAR UN CRUD SOBRE LA COLECCION DE PRODUCTOS
+
+A) AGREGAR UN PRODUCTO MAS A LA COLECCION DE PRODUCTOS
+
+db.products.insertOne({name:'The Pragmatic Programmer',price:17000,url'www.pragmaticprogrammer.com/book'})
+
+B) REALIZAR UNA CONSULTA POR NOMBRE DE UN PRODUCTO EN ESPECIFICO
+
+db.products.find({name:'Trackpad Apple'})
+
+I) LISTAR LOS PRODUCTOS CON PRECIO MENOR A 1000 PESOS
+
+db.products.find({price: {$lt: 1000 } })
+
+II) LISTAR LOS PRODUCOTS CON PRECIO ENTRE LOS 1000 A 3000 PESOS
+
+db.productos.find({$and: [ {price: {$lte: 3000} }, {price: {$gte: 1000} } ] })
+
+III) LISTAR LOS PRODUCTOS CON PRECIO MAYOR A 3000 PESOS
+
+db.products.find({price:{$gt:3000}})
+
+IV) RELIZAR UNA CONSULTA QUE TRAIGA SOLO EL NOMBRE DEL TERCER PRODUCTO MAS BARATO
+
+db.products.find().sort({price:1}).limit(3).name
+
+C) HACER UNA ACTUALIZACION SOBRE TODOS LOS PRODUCTOS, AGREGANDO EL CAMPO STOCK A TODOS ELLOS CON UN VALOR DE 100
+
+db.products.updateMany({price:{$gt:0}},{$set:{stock:100}})
+
+D) CAMBIAR EL STOCK A CERO DE LOS PRODUCOTS CON PRECIO MAYORES A 4000 PESOS
+
+
+db.pdb.products.updateMany({price:{$gt:4000}},{$set:{stock:0}})
+
+E) BORRAR LOS PRODUCTOS CON PRECIO MENOR A 1000 PESOS
+
+db.products.deleteMany({price:{$lt:1000}})
+
+6) CREAR UN USUARIO 'pepe' CLAVE 'asd456' QUE SOLO PUEDA LEER LA BASE DE DATOS ECOMMERCE. VERIFICAR QUE PEPE NO PUEDA CAMBIAR LA INFORMACION
+
+db.createUser({user: "Pepe", pwd: "asd456", roles: [{role: "read", db: "Ecommerce"}]})
+
+
+
