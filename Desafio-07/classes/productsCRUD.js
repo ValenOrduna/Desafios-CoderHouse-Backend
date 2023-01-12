@@ -1,4 +1,5 @@
 const options = require("../options/mysql.config");
+const faker = require("faker/locale/es_MX");
 const knex = require("knex");
 const database = knex(options);
 
@@ -20,5 +21,16 @@ module.exports = class Products {
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     }
+  }
+
+  async generateProduct() {
+    const tittle = faker.commerce.product();
+    const price = faker.commerce.price();
+    const url = faker.internet.url();
+    const photo = faker.image.business();
+
+    const product = { tittle, price, url, photo };
+
+    return product;
   }
 };

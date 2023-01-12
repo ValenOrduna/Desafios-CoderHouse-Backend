@@ -23,4 +23,18 @@ router.post("/", (req, res) => {
   });
 });
 
+router.get("/productos-test", async (req, res) => {
+  let products = [];
+  try {
+    for (let i = 1; i <= 5; i++) {
+      let product = await ProductClass.generateProduct();
+      product = { id: i, ...product };
+      products = [...products, product];
+    }
+    res.json(products);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;
