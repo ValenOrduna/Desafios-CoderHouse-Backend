@@ -10,10 +10,15 @@ router.get("", (req, res) => {
 
 router.post(
   "",
-  passport.authenticate("register", { failureRedirect: "/register" }),
+  passport.authenticate("register", {
+    failureRedirect: "/registerError",
+  }),
   (req, res) => {
-    res.send("Prueba");
+    res.status(300).send({ Success: "User Created" });
   }
 );
 
+router.get("/registerError", (req, res) => {
+  res.sendFile(path.resolve("public/html/registerError.html"));
+});
 export default router;

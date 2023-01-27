@@ -2,15 +2,18 @@ import express from "express";
 import session from "express-session";
 import mongoose from "mongoose";
 import passport from "passport";
+import dotenv from "dotenv";
 import MongoStore from "connect-mongo";
 import routerRegister from "./routes/register.routes.js";
 import routerLogin from "./routes/login.routes.js";
 import routerHome from "./routes/home.routes.js";
 import { initializePassport } from "./passport/passport.config.js";
 
+dotenv.config();
+
 const app = express();
 
-const uri = `mongodb+srv://valenordu:valenordu@cluster0.dezvmft.mongodb.net/users`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.dezvmft.mongodb.net/users`;
 
 mongoose.set("strictQuery", true);
 
@@ -21,10 +24,10 @@ mongoose.connect(uri, {
 
 const configSession = session({
   store: MongoStore.create({
-    mongoUrl:
-      "mongodb+srv://valenordu:valenordu@cluster0.dezvmft.mongodb.net/users-session",
+    mongoUrl: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.dezvmft.mongodb.net/users-session`,
   }),
-  secret: "c0der",
+  secret: process.env.SESSION_SECRET,
+  cookie: { maxAge: 600000 },
   resave: true,
   saveUninitialized: true,
 });
