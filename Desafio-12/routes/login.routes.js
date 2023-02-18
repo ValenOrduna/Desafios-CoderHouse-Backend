@@ -10,7 +10,7 @@ router.get("", (req, res) => {
 
 router.post(
   "",
-  passport.authenticate("login", { failureRedirect: "/loginError" }),
+  passport.authenticate("login", { failureRedirect: "/login" }),
   (req, res) => {
     res.status(300).send({ Success: "User Login" });
   }

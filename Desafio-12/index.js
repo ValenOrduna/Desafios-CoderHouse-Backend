@@ -59,6 +59,12 @@ const configSession = session({
   saveUninitialized: true,
 });
 
+app.use("/register", express.static("public"));
+app.use("/login", express.static("public"));
+app.use("/home", express.static("public"));
+app.use("/info", express.static("public"));
+app.use("/api", express.static("public"));
+
 app.use(express.static("public"));
 app.use(configSession);
 app.use(express.json());

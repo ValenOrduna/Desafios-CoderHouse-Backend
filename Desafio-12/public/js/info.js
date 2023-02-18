@@ -1,6 +1,6 @@
 const content = document.getElementById("content");
 
-fetch("info/getInfo")
+fetch("getInfo")
   .then((response) => response.json())
   .then((data) => {
     for (const element in data) {
