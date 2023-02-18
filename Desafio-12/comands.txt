@@ -1,0 +1,15 @@
+CREAR SERVIDOR 
+
+Crea un servidor y le podes asignar el puerto y el modo
+
+- npm run dev [PORT] [MODO: (FORK O CLUSTER)]
+
+CREAR SERVIDORES
+
+Crea los servidores y para mofidicar el puerto y su modo tienes que configurar el archivo procces.json
+
+- npm run createServers 
+
+BORRAR SERVIDORES 
+
+- npm run deleteServers

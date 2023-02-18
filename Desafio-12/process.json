@@ -1,0 +1,24 @@
+{
+    "apps": [
+        {
+            "name":"Proceso 1",
+            "script":"index.js",
+            "args":"8080 CLUSTER"
+        },
+        {
+            "name":"Proceso 2",
+            "script":"index.js",
+            "args":"8081 CLUSTER"
+        },
+        {
+            "name":"Proceso 3",
+            "script":"index.js",
+            "args":"8082 CLUSTER"
+        },
+        {
+            "name":"Proceso 4",
+            "script":"index.js",
+            "args":"8083 CLUSTER"
+        }
+    ]
+}
