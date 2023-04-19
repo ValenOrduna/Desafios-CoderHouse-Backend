@@ -1,0 +1,17 @@
+{
+  "name": "desafio-13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "type": "module",
+  "scripts": {
+    "denon": "denon run --allow-net src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@firebase/firestore": "^3.10.1",
+    "firebase": "^9.20.0"
+  }
+}
